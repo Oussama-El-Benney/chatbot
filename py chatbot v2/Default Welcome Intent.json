@@ -1,0 +1,207 @@
+{
+  "id": "0f59d7cd-973d-48eb-89b3-a2651ecada0b",
+  "name": "Default Welcome Intent",
+  "auto": true,
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "conditionalResponses": [],
+  "context": [],
+  "contexts": [],
+  "endInteraction": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    },
+    {
+      "name": "GOOGLE_ASSISTANT_WELCOME"
+    }
+  ],
+  "fallbackIntent": false,
+  "liveAgentHandoff": false,
+  "parentId": null,
+  "followUpIntents": [],
+  "priority": 500000,
+  "responses": [
+    {
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "defaultResponsePlatforms": {},
+      "messages": [
+        {
+          "type": "message",
+          "condition": "",
+          "speech": [
+            "Salut !",
+            "Bonjour !",
+            "Salutations !",
+            "Bienvenue !"
+          ]
+        }
+      ],
+      "resetContexts": false
+    }
+  ],
+  "rootParentId": null,
+  "templates": [],
+  "userSays": [
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "salutations",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "5426a55f-d2b2-40b5-a48e-abc6da2fc5e3",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "rebonjour",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "9b946e8c-49b3-4e08-af01-e5924c989378",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "bonjour à toi",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "92745807-6bae-4540-8c83-dfb4b1ea8b0c",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "re bonjour",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "ccc9ef6f-9437-4c87-a060-d3d50086b144",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "allo",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "a1ef5163-3069-4c56-81cc-b3e8f4287987",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "coucou",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "7d3a1d47-011b-447c-8755-95b8c812726a",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "hey",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "b325ad8b-0c1a-4a03-b296-125fe529858f",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "hé",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "8eaa388d-7a00-4e10-86c4-df02341f10e1",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "resalut",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "51b9e59c-a5aa-43b1-8bb1-f4bf7cdf9b67",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "salut",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "7ee02fab-4cbe-453b-9546-d5a5af058cf7",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "re salut",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "49c88923-6958-4546-8cd9-d3f53678e61c",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "salut à tous",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "d2917e60-8780-4996-9f58-c6042f34bac4",
+      "updated": null
+    },
+    {
+      "isTemplate": false,
+      "data": [
+        {
+          "text": "bonjour",
+          "userDefined": false
+        }
+      ],
+      "count": 0,
+      "id": "58d3ec81-42af-4eea-9711-105eb01a2d58",
+      "updated": null
+    }
+  ],
+  "webhookForSlotFilling": false,
+  "webhookUsed": false
+}

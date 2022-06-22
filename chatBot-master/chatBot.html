@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+
+	<title>Bot Speak</title>
+
+	<!--  -->
+
+	<style>
+		.title {
+			background-color: #c2454c;
+			color: #021119;
+			text-align: center;
+			padding: 100px;
+			-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+			
+			
+		}
+		
+		.letsSpeak {
+			background-color: #021119;
+			color: white;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+		
+		.knowledge {
+			background-color: #004e64;
+			color: white;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+		
+		.teach {
+			background-color: #16a8c7;
+			color: white;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+		
+		a {
+			color: black;
+			
+		}
+		button {
+			background-color: #c2454c;
+		}
+	</style>
+
+</head>
+
+<body>
+	
+	<div class="title" id="title">
+	<h2>Hi, I'm a chat bot.<br/> Say hi below</h2>
+	<a id="icon" href="#letsSpeak"><i class="fa fa-angle-double-down" style="font-size:48px"></i></a>
+	</div>
+
+	<div class="letsSpeak" id="letsSpeak">
+		<h2>Talk to me!</h2>
+		<p>Click this button and say 'Hello There!'</p>
+		<button type="button" class="btn btn-danger" id="send" onclick="annyang.start()" value="Reset Form">
+			<!--adds ear icon to button-->
+			<i class="material-icons">hearing</i></button>
+
+		<!--machine response in output-->
+		<div id="clickedChat">
+			<div id="output"></div>
+		</div>
+	</div>
+
+	<div class="knowledge">
+		<h2>Chat with me!</h2>
+
+		<input type="text" class="form-control" placeholder="Talk to me..." id="userInput">
+		<br/>
+		<button type="button" class="btn btn-danger" id="send" onclick="whatSaid()" value="Reset Form">Chat</button>
+		<br/>
+		<div class="response" id="botRespo"></div>
+	</div>
+
+
+
+	<div class="teach">
+		<h2>Teach me things!</h2>
+		<input type="text" class="form-control" placeholder="When you say..." id="helpLearn">
+		<input type="text" class="form-control" placeholder="How should I respond?" id="aboutIt">
+		<br/>
+		<button type="button" class="btn btn-danger" id="send" onclick="teachMe()">Teach me!</button>
+		<br/>
+		<div id="learnlog"></div>
+
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js"></script>
+
+	<script>
+		function init() {
+			//init function, calls local storage which has a stringify'd //array called facts
+			//need to combine facts (string) with vocab array
+			savedValue = localStorage.getItem('facts');
+
+		}
+
+
+
+		//annyang, need to figure out how to make multiple commands run
+
+		var commands = {
+			// annyang will capture anything after a splat (*) and pass it to the function.
+			// e.g. saying "Show me Batman and Robin" is the same as calling showFlickr('Batman and Robin');
+			'show me *tag': showFlickr,
+
+			// A named variable is a one word variable, that can fit anywhere in your command.
+			// e.g. saying "calculate October stats" will call calculateStats('October');
+			'calculate :month stats': calculateStats,
+
+			// By defining a part of the following command as optional, annyang will respond to both:
+			// "say hello to my little friend" as well as "say hello friend"
+			'say hello (to my little) friend': greeting
+		};
+
+		var showFlickr = function (tag) {
+			var url = 'http://api.flickr.com/services/rest/?tags=' + tag;
+			$.getJSON(url);
+
+		}
+
+		var calculateStats = function (month) {
+			$('#stats').text('Statistics for ' + month);
+		}
+
+		var greeting = function () {
+			$('#greeting').text('Hello!');
+		}
+
+
+		if (annyang) {
+			// Let's define our first command. 
+			//First the text we expect, 
+			//and then the function it should call
+			var commands = {
+				'Hello there': function () {
+					var content = ' '
+					content += '<br/>'
+					content += 'Hi, how are you??'
+					content += '<br/>'
+					content += 'I\'m a young bot called Larry.'
+					content += '<br/>'
+					content += 'Unfortunately, my ears aren\'t great (yet), so until I learn more this is all I can hear/say.'
+					content += '<br/>'
+					content += 'But, you can type in the boxes below to chat with me more!';
+
+					console.log(commands);
+					document.getElementById('output').innerHTML = content;
+
+				}
+			}
+
+		};
+
+		// Add our commands to annyang
+		annyang.addCommands(commands);
+
+
+		//need to turn off my microphone
+	</script>
+
+
+
+
+	<script>
+		function gettingJSON() {
+			document.write("jquery loaded");
+			$.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=ee6596241130f193adf1ba90e625cc10", function (json) {
+				document.write(JSON.stringify(json));
+			});
+		}
+
+		//Checks for enter press
+		$(document).keypress(function (e) {
+			if (e.which == 13) {
+				whatSaid();
+
+			}
+		});
+
+
+		//defines date so we can call later
+		var now = new Date();
+
+		//this is what the bot knows
+		var vocabulary = [
+['hi', 'hello'],
+['what is your name', 'My name is Larry, Im a young bot'],
+['how are you', 'Im great, How are you'],
+['where are you', 'Boulder, Colorado'],
+['where is that', 'Near the Rocky Mountains in the United States'],
+['where am i', 'you\'re also in Boulder'],
+['who created you', 'You did!'],
+['what is a bot', 'I\m a bot'],
+['what is your favorite movie', 'Harry Potter perhaps?'],
+['what day is it', now],
+['where am i from', 'Madison Wisconsin'],
+['i love you', 'Aw, thanks. I love you too!'],
+['who is the coolest dog', 'Nora of course!'],
+['would you like to go mountain bicycling', 'I\'m a computer silly'],
+
+
+];
+
+
+
+
+		function whatSaid() {
+
+
+
+			//this creates a variable input that is the userInput
+			var input = document.getElementById('userInput');
+
+			//this defines a variable userSaid (which is what the user said) //that gets the value of the Input variable
+			var userInput = input.value;
+
+
+			//this strips the punctuation and the spaces from user input
+			//punctuation marks I want to strip    
+			var punctRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
+			//fixes the spaces after I remove a bunch of punctuation
+			var spaceRE = /\s+/g;
+
+			var str = userInput;
+			//use string replace to strip the text
+			var saidStripped = str.replace(punctRE, '').replace(spaceRE, ' ');
+			//convert to lower case
+			var input = saidStripped.toLowerCase()
+
+
+
+			var notUnderstood = "I'm sorry, I don\'t understand";
+
+
+			for (var i = 0; i < vocabulary.length; i++) {
+				console.log('I am comparing ' + vocabulary[i][0] + ' with ' + input);
+				if (vocabulary[i][0] == input) {
+					var respo = vocabulary[i][1];
+					document.getElementById('botRespo').innerHTML = respo;
+					return;
+					console.log(vocabulary[i][1]);
+
+				} else {
+					document.getElementById('botRespo').innerHTML = notUnderstood;
+				}
+			}
+
+			//clears the textbox
+			//document.getElementById('userInput').reset;
+		}
+
+		//try to write this to local storage
+		//add a teach me bar
+		//this is a function that takes input 
+		function teachMe() {
+
+			var input1 = document.getElementById('helpLearn');
+			var input2 = document.getElementById('aboutIt');
+
+			var learn_input = input1.value
+			console.log(learn_input);
+			//strip punctuation and spaces
+			//learn_input becomes learnStripped
+
+			var punctuateRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
+			var space_RE = /\s+/g;
+			var str2 = learn_input;
+			var learnStripped = str2.replace(punctuateRE, '').replace(space_RE, ' ');
+			var learned = learnStripped.toLowerCase()
+
+
+
+			var about_input = input2.value
+			console.log(about_input);
+
+			document.getElementById('learnlog').innerHTML = learn_input + ', ' + about_input
+
+			var learnArr = [learnStripped, about_input];
+			console.log(learnArr);
+
+			vocabulary.push(learnArr);
+			console.log(vocabulary);
+
+
+
+			//var learnArrString = learnArr.toString();
+			//console.log(learnArrString);
+
+			var vocabString = vocabulary.toString();
+			console.log(vocabString);
+			//first, need to stringify my array before saving it to local storage
+
+			localStorage.setItem('facts', vocabString);
+
+
+		}
+
+		init();
+	</script>
+
+</body>
+
+</html>

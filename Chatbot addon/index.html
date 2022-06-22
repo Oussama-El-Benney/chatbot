@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="chatbox">
+
+    <button class="chat-btn"><img class="hvh-logo" src="http://www.coworkingspace-hammamet.com/assets/img/logo.png">
+    </button>
+
+    <div class="chatbox-support">
+        <div class="chatbox-header">
+            <p>HVH ChatBot</p>
+        </div>
+        <div class="chatbox-body">
+            <div class="messages-item messages-item-visitor">
+                Hi!
+            </div>
+            <div class="messages-item messages-item-operator">
+                What is it?
+            </div>
+            .
+            <div class="messages-item messages-item-typing">
+                <span class="messages-dot"></span>
+                <span class="messages-dot"></span>
+                <span class="messages-dot"></span>
+            </div>
+        </div>
+
+        <div class="input-group chatbox-input">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Ask something!"
+                   aria-label="input"
+                   aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary submit"
+                    type="button"
+                    id="button-addon2">send
+            </button>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
